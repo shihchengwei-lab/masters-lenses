@@ -6,7 +6,7 @@
 
 [封裝腳本](scripts/package_skills.py) 維護介面描述，將共用契約與單一濾鏡展開成完整 SKILL.md，另產生 agents/openai.yaml。各份設定 `allow_implicit_invocation: false`，維持使用者明確呼叫。
 
-成品只有六組 SKILL.md 與介面設定；封裝程式、測試與研究材料不進入 ZIP。腳本不安裝、發布或呼叫模型。
+每份成品包含 SKILL.md、介面設定與 LICENSE；授權文字統一來自根目錄 LICENSE。封裝程式、測試與研究材料不進入 ZIP。腳本不安裝、發布或呼叫模型。
 
 ## 重建與檢查
 
@@ -20,7 +20,7 @@ python -B -X utf8 -m unittest discover -s tests -v
 
 只需 Python 標準函式庫。ZIP 檔案時間固定，讓相同來源在同一環境產生相同位元組；`--check` 可檢查成品與 ZIP 是否偏離來源，不寫檔。`-B` 避免測試產生 Python 快取。
 
-三個封裝測試涵蓋：完整定稿內容與手動政策、成品被改動時檢查失敗且不覆寫、ZIP 重建一致及損壞偵測。這些檢查不證明模型判斷品質或安裝後的 Host 行為。
+三個封裝測試涵蓋：完整定稿內容、手動政策與每份成品的 MIT 授權、成品被改動時檢查失敗且不覆寫、ZIP 重建一致及損壞偵測。這些檢查不證明模型判斷品質或安裝後的 Host 行為。
 
 ## 提交範圍
 

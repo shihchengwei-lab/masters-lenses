@@ -1,6 +1,7 @@
 ---
 name: simplicity
 description: "使用者呼叫 simplicity 濾鏡時，檢查資料、責任與控制流程是否直接表達必要行為。"
+license: MIT
 ---
 
 # simplicity — 必要複雜度

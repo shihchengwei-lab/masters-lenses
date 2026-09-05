@@ -1,6 +1,7 @@
 ---
 name: performance
 description: "使用者呼叫 performance 濾鏡時，沿實際執行與量測範圍比較可改善成本及必要工作。"
+license: MIT
 ---
 
 # performance — 執行成本

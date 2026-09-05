@@ -25,12 +25,13 @@ def split_document(path):
 def package(root, output, check=False):
     root, output = Path(root), Path(output)
     _, common = split_document(root / "drafts/common.md")
+    license_text = (root / "LICENSE").read_bytes()
     files = {}
     for name, description in DESCRIPTIONS.items():
         title, lens = split_document(root / f"drafts/{name}.md")
         quoted_description = json.dumps(description, ensure_ascii=False)
         skill = (
-            f"---\nname: {name}\ndescription: {quoted_description}\n---\n\n"
+            f"---\nname: {name}\ndescription: {quoted_description}\nlicense: MIT\n---\n\n"
             f"# {title}\n\n## 共用契約\n\n{common}\n\n{lens}\n"
         )
         interface = (
@@ -40,6 +41,7 @@ def package(root, output, check=False):
         )
         files[f"{name}/SKILL.md"] = skill.encode("utf-8")
         files[f"{name}/agents/openai.yaml"] = interface.encode("utf-8")
+        files[f"{name}/LICENSE"] = license_text
 
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED) as archive:

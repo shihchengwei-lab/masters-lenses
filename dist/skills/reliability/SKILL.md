@@ -1,6 +1,7 @@
 ---
 name: reliability
 description: "使用者呼叫 reliability 濾鏡時，檢查狀態、可行事件順序、重試與中斷是否守住系統承諾。"
+license: MIT
 ---
 
 # reliability — 狀態正確性

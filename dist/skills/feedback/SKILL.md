@@ -1,6 +1,7 @@
 ---
 name: feedback
 description: "使用者呼叫 feedback 濾鏡時，檢查假設到可信回饋的距離，協助選擇能辨別結果的下一步與停止點。"
+license: MIT
 ---
 
 # feedback — 回饋迴路

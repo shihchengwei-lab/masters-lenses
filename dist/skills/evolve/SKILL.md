@@ -1,6 +1,7 @@
 ---
 name: evolve
 description: "使用者呼叫 evolve 濾鏡時，追蹤具體需求的知識歸屬、共同變更理由與協調成本。"
+license: MIT
 ---
 
 # evolve — 變更能力

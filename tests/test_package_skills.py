@@ -20,9 +20,13 @@ class PackagingTests(unittest.TestCase):
             output = Path(temporary)
             self.packager.package(ROOT, output)
             with zipfile.ZipFile(output / "masters-lenses.zip") as archive:
-                self.assertEqual(len(archive.namelist()), 12)
+                self.assertEqual(len(archive.namelist()), 18)
                 for name in ("design", "feedback", "evolve", "simplicity", "reliability", "performance"):
+                    expected_license = (ROOT / "LICENSE").read_bytes()
+                    self.assertEqual(archive.read(f"{name}/LICENSE"), expected_license)
+                    self.assertEqual((output / f"skills/{name}/LICENSE").read_bytes(), expected_license)
                     body = archive.read(f"{name}/SKILL.md").decode("utf-8")
+                    self.assertIn("\nlicense: MIT\n", body)
                     for source in (ROOT / "drafts/common.md", ROOT / f"drafts/{name}.md"):
                         approved = source.read_text(encoding="utf-8").strip().split("\n", 1)[1].strip()
                         self.assertIn(approved, body)

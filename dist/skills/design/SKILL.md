@@ -1,6 +1,7 @@
 ---
 name: design
 description: "使用者呼叫 design 濾鏡時，檢查系統限制、上游選擇與下游成本，協助比較整體工程取捨。"
+license: MIT
 ---
 
 # design — 系統因果
