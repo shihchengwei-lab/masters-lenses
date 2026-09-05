@@ -1,0 +1,11 @@
+# Local research and handoff records
+/sources/
+/experiments/
+/SOURCES.md
+/TASK.md
+/drafts/REVIEW.md
+/drafts/RATIONALE.md
+
+# Python runtime caches
+__pycache__/
+*.py[cod]

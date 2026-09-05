@@ -1,0 +1,5 @@
+interface:
+  display_name: "simplicity — 必要複雜度"
+  short_description: "使用者呼叫 simplicity 濾鏡時，檢查資料、責任與控制流程是否直接表達必要行為。"
+policy:
+  allow_implicit_invocation: false
