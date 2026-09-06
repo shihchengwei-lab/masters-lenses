@@ -48,7 +48,7 @@ def render(slug, number, label, command, headline, subhead, quote, accent):
     box(698,145,686,437,'#18252d',24)
     if slug == 'baseline':
         txt(730,168,'回答順序',21,accent,True)
-        items=[('01','重試會覆蓋修正嗎？'),('02','架構可以縮小嗎？'),('03','先定義更新順序')]
+        items=[('01','重試會覆蓋修正嗎？'),('02','寫入與完成狀態一致嗎？'),('03','定義順序，再縮小方案')]
         for i,(n,t) in enumerate(items):
             y=221+i*104
             box(731,y,618,80,'#26353e',12)
@@ -56,7 +56,7 @@ def render(slug, number, label, command, headline, subhead, quote, accent):
             txt(820,y+20,t,30,bold=True)
             if i<2: line(771,y+80,771,y+104,accent,3)
     elif slug == 'single':
-        txt(730,168,'具體做法（若以上傳順序為準）',21,accent,True)
+        txt(730,168,'具體做法（若以受理順序為準）',21,accent,True)
         box(735,226,263,105,'#26353e',14)
         box(1080,226,263,105,'#26353e',14)
         txt(757,240,'工作',23,'#abb8bf')
@@ -70,8 +70,8 @@ def render(slug, number, label, command, headline, subhead, quote, accent):
         txt(750,478,'重試沿用序號，保護新舊順序',26)
         txt(750,521,'先簡化架構，再補必要保護',22,'#abb8bf')
     else:
-        txt(730,168,'明列的三種驗證情境',21,accent,True)
-        for i,(a,b) in enumerate([('01','部分寫入 → 中斷'),('02','資料寫完 → 完成記錄前中斷'),('03','修正已寫入 → 舊工作再重試')]):
+        txt(730,168,'分開處理的兩個保護與驗證',21,accent,True)
+        for i,(a,b) in enumerate([('01','整批交易 → 更新與完成一致'),('02','版本條件 → 拒絕舊工作覆寫'),('03','驗證失敗、重送與交錯')]):
             y=220+i*104
             box(732,y,615,80,'#26353e',12)
             txt(752,y+22,a,27,accent,True)
@@ -88,6 +88,6 @@ def render(slug, number, label, command, headline, subhead, quote, accent):
 
 seventy=70
 if __name__=='__main__':
-    render('baseline','01','無濾鏡','你是資深工程師…', ['先抓風險，','再縮小架構。'],'從資料正確性開始，接著檢查方案成本。','最重要的缺口是重試與並行更新的正確性。','#edc183')
-    render('single','02','單一濾鏡','$simplicity', ['先問必要性，','再具體到序號。'],'先談簡化，也提出更新順序的實作條件。','同一 job 重試保留序號。','#8bdbc2')
-    render('dual','03','雙濾鏡','$simplicity + $reliability', ['先談簡化，','再拆中斷情境。'],'沿著事件順序，列出要驗證的失敗位置。','先定義新舊與失敗語意，再做最小方案。','#bca9f4')
+    render('baseline','01','角色提示（無濾鏡）','只用「你是資深工程師」', ['先抓覆寫，','再查完成狀態。'],'先談兩個失敗風險，再建議縮小方案。','但交易本身不能阻止舊工作晚到覆寫。','#edc183')
+    render('single','02','單一濾鏡','$simplicity · 不加角色提示', ['先問必要性，','再具體到序號。'],'先談簡化，再提出有條件的版本方案。','減少層數或只加交易都不能解決此問題。','#8bdbc2')
+    render('dual','03','雙濾鏡','$simplicity + $reliability · 不加角色提示', ['先談簡化，','再分開兩種保護。'],'釐清整批成功與新舊順序，各自如何保護。','交易本身不保證新舊順序。','#bca9f4')
