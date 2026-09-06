@@ -1,0 +1,1 @@
+請讀取 examples/csv-import/input.md，以及 dist/skills/simplicity/SKILL.md。這次請明確使用 $simplicity 濾鏡，回答 input.md 的審查問題。不讀取其他檔案，不修改檔案。最終回答僅包含給使用者的審查內容。
